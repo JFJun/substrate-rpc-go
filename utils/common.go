@@ -6,11 +6,9 @@ import (
 	"errors"
 	"fmt"
 	"github.com/JFJun/go-substrate-crypto/ss58"
-	"github.com/JFJun/substrate-rpc-go/types"
 	"github.com/JFJun/substrate-rpc-go/xxhash"
 	"golang.org/x/crypto/blake2b"
 	"hash"
-	"math/big"
 	"strings"
 )
 
@@ -68,11 +66,6 @@ func RemoveHex0x(hexStr string) string {
 		return hexStr[2:]
 	}
 	return hexStr
-}
-
-func UCompactToBigInt(u types.UCompact) *big.Int {
-	b := big.Int(u)
-	return &b
 }
 
 func IntInSlice(a int, list []int) bool {
