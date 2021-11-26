@@ -2,11 +2,15 @@ package utils
 
 import (
 	"encoding/hex"
+	"encoding/json"
 	"errors"
+	"fmt"
 	"github.com/JFJun/go-substrate-crypto/ss58"
+	"github.com/JFJun/substrate-rpc-go/types"
 	"github.com/JFJun/substrate-rpc-go/xxhash"
 	"golang.org/x/crypto/blake2b"
 	"hash"
+	"math/big"
 	"strings"
 )
 
@@ -57,4 +61,39 @@ func ZeroBytes(data []byte) {
 	for i, _ := range data {
 		data[i] = 0
 	}
+}
+
+func RemoveHex0x(hexStr string) string {
+	if strings.HasPrefix(hexStr, "0x") {
+		return hexStr[2:]
+	}
+	return hexStr
+}
+
+func UCompactToBigInt(u types.UCompact) *big.Int {
+	b := big.Int(u)
+	return &b
+}
+
+func IntInSlice(a int, list []int) bool {
+	for _, b := range list {
+		if b == a {
+			return true
+		}
+	}
+	return false
+}
+
+func IsNumberString(str string) bool {
+	for _, a := range str {
+		if a > 57 || a < 48 {
+			return false
+		}
+	}
+	return true
+}
+
+func CheckStructData(object interface{}) {
+	d, _ := json.Marshal(object)
+	fmt.Println(string(d))
 }
