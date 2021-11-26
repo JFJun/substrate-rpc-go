@@ -52,3 +52,9 @@ func Remove0X(hexData string) string {
 	}
 	return hexData
 }
+
+func ZeroBytes(data []byte) {
+	for i, _ := range data {
+		data[i] = 0
+	}
+}
