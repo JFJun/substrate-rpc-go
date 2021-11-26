@@ -7,6 +7,7 @@ import (
 	"github.com/JFJun/substrate-rpc-go/xxhash"
 	"golang.org/x/crypto/blake2b"
 	"hash"
+	"strings"
 )
 
 func SelectHash(method string) (hash.Hash, error) {
@@ -43,4 +44,11 @@ func AddressToPublicKey(address string) string {
 	}
 	pubHex := hex.EncodeToString(pub)
 	return pubHex
+}
+
+func Remove0X(hexData string) string {
+	if strings.HasPrefix(hexData, "0x") {
+		return hexData[2:]
+	}
+	return hexData
 }
