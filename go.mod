@@ -30,9 +30,7 @@ require (
 	golang.org/x/sys v0.0.0-20210415045647-66c3f260301c // indirect
 	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
+	github.com/btcsuite/btcutil v1.0.2 // indirect
+    github.com/shopspring/decimal v1.2.0 // indirect
 )
 
-require (
-	github.com/btcsuite/btcutil v1.0.2 // indirect
-	github.com/shopspring/decimal v1.2.0 // indirect
-)
